@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Smart Weather Dashboard</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- Header -->
+        <header class="header">
+            <div class="brand">
+                <span class="brand-icon">☁</span>
+
+                <div>
+                    <h1>Weatherly</h1>
+                    <p>Smart Weather Dashboard</p>
+                </div>
+            </div>
+
+            <div class="header-controls">
+                <button class="unit-toggle" id="unitToggle">
+                    °C
+                </button>
+
+                <button class="theme-toggle" id="themeToggle">
+                    🌙
+                </button>
+            </div>
+        </header>
+
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- Search Section -->
+            <section class="search-section">
+
+                <form class="search-form" id="searchForm">
+
+                    <div class="search-input-wrapper">
+                        <span class="search-icon">⌕</span>
+
+                        <input
+                            type="text"
+                            id="cityInput"
+                            class="city-input"
+                            placeholder="Search for a city..."
+                            autocomplete="off"
+                        >
+                    </div>
+
+                    <button type="submit" class="search-button">
+                        Search
+                    </button>
+
+                </form>
+
+            </section>
+
+
+            <!-- Weather Section -->
+            <section class="weather-section">
+
+                <div class="weather-card">
+
+                    <div class="weather-location">
+                        <p class="country" id="country">India</p>
+
+                        <h2 id="cityName">New Delhi</h2>
+                    </div>
+
+
+                    <div class="weather-main">
+
+                        <div class="weather-icon" id="weatherIcon">
+                            ☀️
+                        </div>
+
+                        <div class="temperature-container">
+
+                            <h3 id="temperature">
+                                32°C
+                            </h3>
+
+                            <p id="weatherCondition">
+                                Clear Sky
+                            </p>
+
+                            <p class="feels-like">
+                                Feels like
+                                <span id="feelsLike">35°C</span>
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- Weather Statistics -->
+            <section class="statistics-section">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        💧
+                    </div>
+
+                    <div class="stat-content">
+                        <p>Humidity</p>
+                        <h3 id="humidity">62%</h3>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        💨
+                    </div>
+
+                    <div class="stat-content">
+                        <p>Wind Speed</p>
+                        <h3 id="windSpeed">14 km/h</h3>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        🌡️
+                    </div>
+
+                    <div class="stat-content">
+                        <p>Pressure</p>
+                        <h3 id="pressure">1012 hPa</h3>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        👁️
+                    </div>
+
+                    <div class="stat-content">
+                        <p>Visibility</p>
+                        <h3 id="visibility">10 km</h3>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- Initial State -->
+            <section class="app-state initial-state" id="initialState">
+
+                <div class="state-icon">
+                    ☁️
+                </div>
+
+                <h2>Search for a city</h2>
+
+                <p>
+                    Enter a city name to see the current weather.
+                </p>
+
+            </section>
+
+
+            <!-- Loading State -->
+            <section class="app-state loading-state" id="loadingState">
+
+                <div class="loader"></div>
+
+                <h2>Fetching weather...</h2>
+
+                <p>
+                    Please wait while we get the latest weather data.
+                </p>
+
+            </section>
+
+
+            <!-- Error State -->
+            <section class="app-state error-state" id="errorState">
+
+                <div class="state-icon">
+                    ⚠️
+                </div>
+
+                <h2>City not found</h2>
+
+                <p id="errorMessage">
+                    Please check the city name and try again.
+                </p>
+
+            </section>
+
+        </main>
+
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>
+                © 2026 Manoj Kumar Gupta
+            </p>
+        
+            <p>
+                Built with HTML, CSS & JavaScript
+            </p>
+        </footer>
+
+    </div>
+
+
+    <script src="js/app.js"></script>
+
+</body>
+</html>

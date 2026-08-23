@@ -1,0 +1,640 @@
+/* ========================================
+   1. CSS Custom Properties (Design Tokens)
+   ======================================== */
+
+:root {
+    /* Colors */
+    --color-bg: #e8f1f8;
+    --color-card: #ffffff;
+    --color-text: #1b2a41;
+    --color-text-muted: #5c6b7a;
+    --color-accent: #2b7de9;
+    --color-border: #d5e2ee;
+    --color-error: #d64545;
+
+    /* Spacing */
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+
+    /* Border radius */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+
+    /* Shadow */
+    --shadow: 0 8px 24px rgba(27, 42, 65, 0.08);
+
+    /* Font sizes */
+    --font-sm: 0.875rem;
+    --font-md: 1rem;
+    --font-lg: 1.25rem;
+    --font-xl: 1.75rem;
+    --font-display: 2.5rem;
+
+    /* Layout */
+    --app-max-width: 1100px;
+}
+
+
+/* ========================================
+   2. Basic CSS Reset
+   ======================================== */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+p {
+    margin: 0;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+
+/* ========================================
+   3. HTML / Body
+   ======================================== */
+
+html,
+body {
+    min-height: 100%;
+}
+
+body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: var(--font-md);
+    line-height: 1.5;
+}
+
+
+/* ========================================
+   4. App Layout
+   ======================================== */
+
+.app {
+    max-width: var(--app-max-width);
+    min-height: 100vh;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--space-md);
+    padding-right: var(--space-md);
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+}
+
+
+/* ========================================
+   5. Header
+   ======================================== */
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+    padding-top: var(--space-lg);
+    padding-bottom: var(--space-lg);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.brand-icon {
+    font-size: var(--font-xl);
+    color: var(--color-accent);
+    line-height: 1;
+}
+
+.header h1 {
+    font-size: var(--font-lg);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--color-text);
+}
+
+.brand p {
+    font-size: var(--font-sm);
+    color: var(--color-text-muted);
+}
+
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.unit-toggle,
+.theme-toggle {
+    min-width: 2.5rem;
+    min-height: 2.5rem;
+    padding: var(--space-sm) var(--space-md);
+    background-color: var(--color-card);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.unit-toggle:hover,
+.theme-toggle:hover {
+    background-color: var(--color-bg);
+    border-color: var(--color-accent);
+}
+
+
+/* ========================================
+   6. Search Section
+   ======================================== */
+
+.search-section {
+    padding-top: var(--space-lg);
+}
+
+.search-form {
+    display: flex;
+    align-items: stretch;
+    gap: var(--space-sm);
+}
+
+.search-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex: 1 1 auto;
+    min-width: 0;
+    min-height: 2.75rem;
+    background-color: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search-input-wrapper:focus-within {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 25%, transparent);
+}
+
+.search-icon {
+    position: absolute;
+    left: var(--space-md);
+    color: var(--color-text-muted);
+    font-size: var(--font-lg);
+    line-height: 1;
+    pointer-events: none;
+}
+
+.city-input {
+    width: 100%;
+    min-height: 2.75rem;
+    padding: var(--space-sm) var(--space-md) var(--space-sm) 2.75rem;
+    border: none;
+    background: transparent;
+    color: var(--color-text);
+    font-size: var(--font-md);
+    appearance: none;
+    outline: none;
+}
+
+.city-input::placeholder {
+    color: var(--color-text-muted);
+}
+
+.search-button {
+    flex: 0 0 auto;
+    min-width: 6.5rem;
+    min-height: 2.75rem;
+    padding: var(--space-sm) var(--space-lg);
+    background-color: var(--color-accent);
+    color: var(--color-card);
+    border: none;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    cursor: pointer;
+    transition: filter 0.2s ease;
+}
+
+.search-button:hover {
+    filter: brightness(0.92);
+}
+
+.search-button:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+}
+
+
+/* ========================================
+   7. Main Weather Card
+   ======================================== */
+
+.weather-section {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.weather-card {
+    padding: var(--space-xl);
+    background-color: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.weather-card:hover {
+    box-shadow: 0 12px 32px rgba(27, 42, 65, 0.12);
+    transform: translateY(-2px);
+}
+
+.weather-location {
+    margin-bottom: var(--space-lg);
+}
+
+.country {
+    font-size: var(--font-sm);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+}
+
+#cityName {
+    margin-top: var(--space-xs);
+    font-size: var(--font-xl);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--color-text);
+}
+
+.weather-main {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xl);
+}
+
+.weather-icon {
+    font-size: 4.5rem;
+    line-height: 1;
+}
+
+.temperature-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+#temperature {
+    font-size: var(--font-display);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--color-text);
+}
+
+#weatherCondition {
+    font-size: var(--font-md);
+    font-weight: 500;
+    color: var(--color-text);
+}
+
+.feels-like {
+    font-size: var(--font-sm);
+    color: var(--color-text-muted);
+}
+
+
+/* ========================================
+   8. Weather Statistics
+   ======================================== */
+
+.statistics-section {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-md);
+    padding-top: 0;
+}
+
+.stat-card {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-md);
+    background-color: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.stat-card:hover {
+    box-shadow: 0 12px 32px rgba(27, 42, 65, 0.12);
+    transform: translateY(-2px);
+}
+
+.stat-icon {
+    font-size: var(--font-xl);
+    line-height: 1;
+}
+
+.stat-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    min-width: 0;
+}
+
+.stat-content p {
+    margin: 0;
+    font-size: var(--font-sm);
+    color: var(--color-text-muted);
+}
+
+.stat-content h3 {
+    margin: 0;
+    font-size: var(--font-md);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--color-text);
+}
+
+
+/* ========================================
+   9. Application States
+   ======================================== */
+
+.app-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: var(--space-sm);
+    margin-top: var(--space-lg);
+    padding: var(--space-xl);
+    background-color: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+}
+
+.initial-state,
+.loading-state {
+    color: var(--color-text);
+}
+
+.state-icon {
+    margin-bottom: var(--space-sm);
+    font-size: 2.5rem;
+    line-height: 1;
+}
+
+.app-state h2 {
+    margin: 0;
+    font-size: var(--font-lg);
+    font-weight: 700;
+    color: var(--color-text);
+}
+
+.app-state p {
+    margin: 0;
+    max-width: 28rem;
+    font-size: var(--font-md);
+    line-height: 1.6;
+    color: var(--color-text-muted);
+}
+
+.loader {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-bottom: var(--space-sm);
+    border: 3px solid var(--color-border);
+    border-top-color: var(--color-accent);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.error-state {
+    border-color: color-mix(in srgb, var(--color-error) 40%, var(--color-border));
+}
+
+.error-state h2 {
+    color: var(--color-error);
+}
+
+
+/* ========================================
+   10. Footer
+   ======================================== */
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-xs);
+    margin-top: var(--space-xl);
+    padding-top: var(--space-lg);
+    padding-bottom: var(--space-lg);
+    border-top: 1px solid var(--color-border);
+    text-align: center;
+}
+
+.footer p {
+    margin: 0;
+    font-size: var(--font-sm);
+    color: var(--color-text-muted);
+}
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+/* ---------- TABLET ---------- */
+
+@media (max-width: 899px) {
+
+    .app {
+        padding-left: var(--space-md);
+        padding-right: var(--space-md);
+    }
+
+    .statistics-section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 639px) {
+
+    .app {
+        padding-left: var(--space-sm);
+        padding-right: var(--space-sm);
+    }
+
+    .header {
+        flex-wrap: wrap;
+        gap: var(--space-md);
+    }
+
+    .header-controls {
+        margin-left: auto;
+    }
+
+    .search-form {
+        flex-direction: column;
+    }
+
+    .search-input-wrapper,
+    .search-button {
+        width: 100%;
+    }
+
+    .search-button {
+        min-height: 48px;
+    }
+
+    .weather-card {
+        padding: var(--space-lg);
+    }
+
+    .weather-main {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--space-md);
+    }
+
+    .weather-icon {
+        font-size: 4rem;
+    }
+
+   #temperature {
+    font-size: var(--font-display);
+}
+
+    .statistics-section {
+        grid-template-columns: 1fr;
+    }
+
+    .stat-card {
+        width: 100%;
+    }
+
+    .footer {
+        padding-bottom: var(--space-md);
+    }
+
+}
+/* ========================================
+   11. UI POLISH & ANIMATIONS
+   ======================================== */
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Better interaction for buttons */
+button {
+    transition:
+        transform 0.2s ease,
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+/* Button press effect */
+button:active {
+    transform: scale(0.97);
+}
+
+/* Search button enhancement */
+.search-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(43, 125, 233, 0.2);
+}
+
+/* Header controls hover */
+.unit-toggle:hover,
+.theme-toggle:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow);
+}
+
+/* Weather card hover */
+.weather-card:hover {
+    transform: translateY(-3px);
+}
+
+/* Statistics hover */
+.stat-card:hover {
+    transform: translateY(-3px);
+}
+
+/* Better keyboard accessibility */
+.unit-toggle:focus-visible,
+.theme-toggle:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+}
+
+/* Page entrance animation */
+.app {
+    animation: pageEnter 0.5s ease-out;
+}
+
+@keyframes pageEnter {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
