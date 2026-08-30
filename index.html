@@ -1,52 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <title>Smart Weather Dashboard</title>
+    <meta
+        name="description"
+        content="Weatherly - Smart Weather Dashboard"
+    >
 
-    <link rel="stylesheet" href="css/style.css">
+    <title>Weatherly — Smart Weather Dashboard</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
 </head>
+
 
 <body>
 
-    <div class="app">
 
-        <!-- Header -->
-        <header class="header">
+    <!-- ========================================
+         HEADER
+    ========================================= -->
+
+    <header class="header">
+
+        <div class="header-inner">
+
+
+            <!-- Brand -->
+
             <div class="brand">
-                <span class="brand-icon">☁</span>
 
-                <div>
-                    <h1>Weatherly</h1>
-                    <p>Smart Weather Dashboard</p>
+                <div class="brand-logo">
+                    ☁️
                 </div>
+
+                <div class="brand-text">
+
+                    <h1>
+                        Weatherly
+                    </h1>
+
+                    <p>
+                        Smart Weather Dashboard
+                    </p>
+
+                </div>
+
             </div>
+
+
+            <!-- Header Controls -->
 
             <div class="header-controls">
-                <button class="unit-toggle" id="unitToggle">
-                    °C
+
+
+                <!-- Current Location -->
+
+                <button
+                    class="location-button"
+                    id="locationButton"
+                    type="button"
+                    aria-label="Use current location"
+                    title="Use current location"
+                >
+                    📍
                 </button>
 
-                <button class="theme-toggle" id="themeToggle">
+
+                <!-- Temperature Unit -->
+
+                <button
+                    class="unit-toggle"
+                    id="unitToggle"
+                    type="button"
+                    aria-label="Switch to Fahrenheit"
+                    title="Switch to Fahrenheit"
+                >
+                    °F
+                </button>
+
+
+                <!-- Theme -->
+
+                <button
+                    class="theme-toggle"
+                    id="themeToggle"
+                    type="button"
+                    aria-label="Switch to light mode"
+                    title="Switch to light mode"
+                >
                     🌙
                 </button>
+
             </div>
-        </header>
+
+        </div>
+
+    </header>
 
 
-        <!-- Main Content -->
+
+    <!-- ========================================
+         APP
+    ========================================= -->
+
+    <div class="app">
+
+
+        <!-- ========================================
+             MAIN CONTENT
+        ========================================= -->
+
         <main class="main-content">
 
-            <!-- Search Section -->
-            <section class="search-section">
 
-                <form class="search-form" id="searchForm">
+            <!-- ========================================
+                 SEARCH SECTION
+            ========================================= -->
+
+            <section
+                class="search-section"
+                aria-label="Search weather"
+            >
+
+                <form
+                    class="search-form"
+                    id="searchForm"
+                >
+
 
                     <div class="search-input-wrapper">
-                        <span class="search-icon">⌕</span>
+
+                        <span
+                            class="search-icon"
+                            aria-hidden="true"
+                        >
+                            🔍
+                        </span>
+
 
                         <input
                             type="text"
@@ -54,10 +156,16 @@
                             class="city-input"
                             placeholder="Search for a city..."
                             autocomplete="off"
+                            aria-label="City name"
                         >
+
                     </div>
 
-                    <button type="submit" class="search-button">
+
+                    <button
+                        class="search-button"
+                        type="submit"
+                    >
                         Search
                     </button>
 
@@ -66,40 +174,37 @@
             </section>
 
 
-            <!-- Weather Section -->
-            <section class="weather-section">
 
-                <div class="weather-card">
+            <!-- ========================================
+                 CURRENT DATE & TIME
+            ========================================= -->
 
-                    <div class="weather-location">
-                        <p class="country" id="country">India</p>
+            <section
+                class="datetime-section"
+                aria-label="Current date and time"
+            >
 
-                        <h2 id="cityName">New Delhi</h2>
+                <div class="datetime-card">
+
+                    <div class="datetime-icon">
+                        🕐
                     </div>
 
+                    <div class="datetime-content">
 
-                    <div class="weather-main">
+                        <p
+                            class="current-date"
+                            id="currentDate"
+                        >
+                            Loading date...
+                        </p>
 
-                        <div class="weather-icon" id="weatherIcon">
-                            ☀️
-                        </div>
-
-                        <div class="temperature-container">
-
-                            <h3 id="temperature">
-                                32°C
-                            </h3>
-
-                            <p id="weatherCondition">
-                                Clear Sky
-                            </p>
-
-                            <p class="feels-like">
-                                Feels like
-                                <span id="feelsLike">35°C</span>
-                            </p>
-
-                        </div>
+                        <h2
+                            class="current-time"
+                            id="currentTime"
+                        >
+                            --:--:--
+                        </h2>
 
                     </div>
 
@@ -108,60 +213,262 @@
             </section>
 
 
-            <!-- Weather Statistics -->
-            <section class="statistics-section">
 
-                <div class="stat-card">
+            <!-- ========================================
+                 CURRENT WEATHER
+            ========================================= -->
 
-                    <div class="stat-icon">
+            <section
+                class="weather-section"
+                aria-label="Current weather"
+            >
+
+                <article class="weather-card">
+
+
+                    <!-- Location -->
+
+                    <div class="weather-location">
+
+                        <span
+                            class="country"
+                            id="country"
+                        >
+                            --
+                        </span>
+
+                        <h2 id="cityName">
+                            --
+                        </h2>
+
+                    </div>
+
+
+                    <!-- Main Weather -->
+
+                    <div class="weather-main">
+
+
+                        <div
+                            class="weather-icon"
+                            id="weatherIcon"
+                            aria-hidden="true"
+                        >
+                            🌤️
+                        </div>
+
+
+                        <div class="temperature-container">
+
+                            <div
+                                id="temperature"
+                                class="temperature"
+                            >
+                                --°C
+                            </div>
+
+                            <p
+                                id="weatherCondition"
+                                class="weather-condition"
+                            >
+                                --
+                            </p>
+
+                            <p
+                                id="feelsLike"
+                                class="feels-like"
+                            >
+                                Feels like --°C
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </section>
+
+
+
+            <!-- ========================================
+                 WEATHER STATISTICS
+            ========================================= -->
+
+            <section
+                class="statistics-section"
+                aria-label="Weather statistics"
+            >
+
+
+                <!-- Humidity -->
+
+                <article class="stat-card">
+
+                    <div
+                        class="stat-icon"
+                        aria-hidden="true"
+                    >
                         💧
                     </div>
 
                     <div class="stat-content">
-                        <p>Humidity</p>
-                        <h3 id="humidity">62%</h3>
+
+                        <p>
+                            Humidity
+                        </p>
+
+                        <h3 id="humidity">
+                            --%
+                        </h3>
+
                     </div>
 
-                </div>
+                </article>
 
 
-                <div class="stat-card">
+                <!-- Wind -->
 
-                    <div class="stat-icon">
+                <article class="stat-card">
+
+                    <div
+                        class="stat-icon"
+                        aria-hidden="true"
+                    >
                         💨
                     </div>
 
                     <div class="stat-content">
-                        <p>Wind Speed</p>
-                        <h3 id="windSpeed">14 km/h</h3>
+
+                        <p>
+                            Wind Speed
+                        </p>
+
+                        <h3 id="windSpeed">
+                            -- km/h
+                        </h3>
+
                     </div>
 
-                </div>
+                </article>
 
 
-                <div class="stat-card">
+                <!-- Pressure -->
 
-                    <div class="stat-icon">
-                        🌡️
+                <article class="stat-card">
+
+                    <div
+                        class="stat-icon"
+                        aria-hidden="true"
+                    >
+                        📊
                     </div>
 
                     <div class="stat-content">
-                        <p>Pressure</p>
-                        <h3 id="pressure">1012 hPa</h3>
+
+                        <p>
+                            Pressure
+                        </p>
+
+                        <h3 id="pressure">
+                            -- hPa
+                        </h3>
+
                     </div>
 
-                </div>
+                </article>
 
 
-                <div class="stat-card">
+                <!-- Visibility -->
 
-                    <div class="stat-icon">
+                <article class="stat-card">
+
+                    <div
+                        class="stat-icon"
+                        aria-hidden="true"
+                    >
                         👁️
                     </div>
 
                     <div class="stat-content">
-                        <p>Visibility</p>
-                        <h3 id="visibility">10 km</h3>
+
+                        <p>
+                            Visibility
+                        </p>
+
+                        <h3 id="visibility">
+                            -- km
+                        </h3>
+
+                    </div>
+
+                </article>
+
+
+            </section>
+
+
+
+            <!-- ========================================
+                 SUNRISE / SUNSET
+            ========================================= -->
+
+            <section
+                class="sun-section"
+                aria-label="Sunrise and sunset"
+            >
+
+                <div class="sun-card">
+
+
+                    <div class="sun-item">
+
+                        <div
+                            class="sun-icon"
+                            aria-hidden="true"
+                        >
+                            🌅
+                        </div>
+
+                        <div>
+
+                            <p>
+                                Sunrise
+                            </p>
+
+                            <h3 id="sunrise">
+                                --:--
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="sun-divider"></div>
+
+
+                    <div class="sun-item">
+
+                        <div
+                            class="sun-icon"
+                            aria-hidden="true"
+                        >
+                            🌇
+                        </div>
+
+                        <div>
+
+                            <p>
+                                Sunset
+                            </p>
+
+                            <h3 id="sunset">
+                                --:--
+                            </h3>
+
+                        </div>
+
                     </div>
 
                 </div>
@@ -169,69 +476,239 @@
             </section>
 
 
-            <!-- Initial State -->
-            <section class="app-state initial-state" id="initialState">
 
-                <div class="state-icon">
-                    ☁️
+            <!-- ========================================
+                 HOURLY FORECAST
+            ========================================= -->
+
+            <section
+                class="hourly-section"
+                aria-label="Hourly forecast"
+            >
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <span class="section-label">
+                            FORECAST
+                        </span>
+
+                        <h2>
+                            Hourly Forecast
+                        </h2>
+
+                    </div>
+
                 </div>
 
-                <h2>Search for a city</h2>
+
+                <div
+                    class="hourly-container"
+                    id="hourlyContainer"
+                >
+
+                    <!-- JavaScript will add hourly cards -->
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ========================================
+                 5 DAY FORECAST
+            ========================================= -->
+
+            <section
+                class="forecast-section"
+                aria-label="Five day forecast"
+            >
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <span class="section-label">
+                            NEXT 5 DAYS
+                        </span>
+
+                        <h2>
+                            5-Day Forecast
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="forecast-container"
+                    id="forecastContainer"
+                >
+
+                    <!-- JavaScript will add forecast cards -->
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ========================================
+                 AIR QUALITY
+            ========================================= -->
+
+            <section
+                class="air-quality-section"
+                aria-label="Air quality"
+            >
+
+                <div class="air-quality-card">
+
+                    <div class="air-quality-icon">
+                        🌿
+                    </div>
+
+                    <div class="air-quality-content">
+
+                        <p>
+                            Air Quality — PM2.5
+                        </p>
+
+                        <h2 id="airQuality">
+                            --
+                        </h2>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ========================================
+                 INITIAL STATE
+            ========================================= -->
+
+            <section
+                class="app-state initial-state"
+                id="initialState"
+            >
+
+                <div
+                    class="state-icon"
+                    aria-hidden="true"
+                >
+                    🌤️
+                </div>
+
+                <h2>
+                    Select a City
+                </h2>
 
                 <p>
-                    Enter a city name to see the current weather.
+                    Search for a city to see
+                    current weather conditions,
+                    hourly updates and a
+                    5-day forecast.
                 </p>
 
             </section>
 
 
-            <!-- Loading State -->
-            <section class="app-state loading-state" id="loadingState">
 
-                <div class="loader"></div>
+            <!-- ========================================
+                 LOADING STATE
+            ========================================= -->
 
-                <h2>Fetching weather...</h2>
+            <section
+                class="app-state loading-state"
+                id="loadingState"
+                hidden
+            >
+
+                <div
+                    class="loader"
+                    aria-hidden="true"
+                ></div>
+
+                <h2>
+                    Fetching Weather Data
+                </h2>
 
                 <p>
-                    Please wait while we get the latest weather data.
+                    Please wait while we get
+                    the latest weather information.
                 </p>
 
             </section>
 
 
-            <!-- Error State -->
-            <section class="app-state error-state" id="errorState">
 
-                <div class="state-icon">
+            <!-- ========================================
+                 ERROR STATE
+            ========================================= -->
+
+            <section
+                class="app-state error-state"
+                id="errorState"
+                hidden
+            >
+
+                <div
+                    class="state-icon"
+                    aria-hidden="true"
+                >
                     ⚠️
                 </div>
 
-                <h2>City not found</h2>
+                <h2>
+                    Something went wrong
+                </h2>
 
                 <p id="errorMessage">
-                    Please check the city name and try again.
+                    Unable to fetch weather data.
                 </p>
 
             </section>
+
 
         </main>
 
 
-        <!-- Footer -->
+        <!-- ========================================
+             FOOTER
+        ========================================= -->
+
         <footer class="footer">
+
             <p>
-                © 2026 Manoj Kumar Gupta
+                Weatherly — Smart Weather Dashboard
             </p>
-        
+
             <p>
                 Built with HTML, CSS & JavaScript
             </p>
+
+            <p>
+                © 2026 Manoj Kumar Gupta
+            </p>
+
         </footer>
+
 
     </div>
 
 
+
+    <!-- ========================================
+         JAVASCRIPT
+    ========================================= -->
+
     <script src="js/app.js"></script>
 
 </body>
+
 </html>
