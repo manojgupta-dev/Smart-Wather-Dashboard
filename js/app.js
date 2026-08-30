@@ -1527,5 +1527,4 @@ async function loadDefaultCity() {
 // ========================================
 // 23. START APPLICATION
 // ========================================
-
 loadDefaultCity();
